@@ -1,0 +1,23 @@
+name: Basic CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Run a one-line script
+      run: echo Hello, this is a basic CI check!
+    - name: Run a multi-line script
+      run: |
+        echo Add your build, test, or lint commands here.
+        echo For example: npm install, npm run build, npm test.
